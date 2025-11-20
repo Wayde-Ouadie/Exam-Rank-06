@@ -23,12 +23,12 @@ void	erro(char *str)
 
 void	msgsender(int sendfd)
 {
-	for (int fd = 0; fd <= max ; fd++)
-	{
+	for (int fd = 0; fd <= max ; fd++) {
 		if (FD_ISSET(fd, &Writefds) && fd != sendfd)
 			write(fd, buffWrite, strlen(buffWrite));
 	}
 }
+
 int	main(int ac,char** av)
 {
 	if (ac != 2) erro("Wrong number of arguments\n");
