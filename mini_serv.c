@@ -51,7 +51,7 @@ int	main(int ac,char** av)
 		if (select(max + 1, &Readfds, &Writefds, NULL, NULL) < 0) continue;
 		for (int fd = 0; fd <= max; fd++)
 		{
-			if (FD_ISSET(fd, &Readfds) && fd == sockfd){
+			if (FD_ISSET(sockfd, &Readfds)) {
 				int clientSocket = accept(sockfd, NULL, NULL);
 				if (clientSocket > max)
 					max = clientSocket;
