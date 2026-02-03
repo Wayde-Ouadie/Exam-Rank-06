@@ -1,9 +1,9 @@
-#include <stdio.h> // in main.
-#include <stdlib.h> // in main.
-#include <string.h> // in main.
-#include <unistd.h> // in main.
-#include <sys/socket.h> // in main.
-#include <netinet/in.h> // in main.
+#include <stdio.h> // in main.c
+#include <stdlib.h> // in main.c
+#include <string.h> // in main.c
+#include <unistd.h> // in main.c
+#include <sys/socket.h> // in main.c
+#include <netinet/in.h> // in main.c
 #include <sys/select.h>
 
 typedef struct s_client {
@@ -38,12 +38,12 @@ int main(int ac, char **av) {
     FD_SET(sockfd, &active_fds);
     struct sockaddr_in servaddr; // in main.c
     memset(&servaddr, 0, sizeof(servaddr)); // in main.c
-    servaddr.sin_family = AF_INET; // in main.
-    servaddr.sin_addr.s_addr = htonl(2130706433); // in main.
-    servaddr.sin_port = htons(atoi(av[1])); // in main.
+    servaddr.sin_family = AF_INET; // in main.c
+    servaddr.sin_addr.s_addr = htonl(2130706433); // in main.c
+    servaddr.sin_port = htons(atoi(av[1])); // in main.c
     if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) != 0) // in main.
         exitError("Fatal error\n"); // replace what in main with "Fatal error\n" message
-    if (listen(sockfd, 10) != 0) // in main.
+    if (listen(sockfd, 10) != 0) // in main.c
         exitError("Fatal error\n"); // replace what in main with "Fatal error\n" message
     while (1) {
         read_fds = write_fds = active_fds;
