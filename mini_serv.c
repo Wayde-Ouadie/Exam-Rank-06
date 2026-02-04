@@ -32,7 +32,7 @@ int main(int ac, char **av) {
         exitError("Wrong number of arguments\n");
     int sockfd = socket(AF_INET, SOCK_STREAM, 0); // in main.c
     if (sockfd == -1) // in main.c
-        exitError("Fatal error\n");
+        exitError("Fatal error\n");  // replace what in main with "Fatal error\n" message
     max_fd = sockfd;
     FD_ZERO(&active_fds);
     FD_SET(sockfd, &active_fds);
