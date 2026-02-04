@@ -41,7 +41,7 @@ int main(int ac, char **av) {
     servaddr.sin_family = AF_INET; // in main.c
     servaddr.sin_addr.s_addr = htonl(2130706433); // in main.c
     servaddr.sin_port = htons(atoi(av[1])); // in main.c
-    if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) != 0) // in main.
+    if (bind(sockfd, (const struct sockaddr *)&servaddr, sizeof(servaddr)) != 0) // in main.c
         exitError("Fatal error\n"); // replace what in main with "Fatal error\n" message
     if (listen(sockfd, 10) != 0) // in main.c
         exitError("Fatal error\n"); // replace what in main with "Fatal error\n" message
